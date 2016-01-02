@@ -10,13 +10,14 @@
 var should = require('should');
 var C2Q = require('../index.js');
 
-describe('API Tests Suite', function () {
+describe('CRON to Quartz - Test Suite', function () {
 
-  describe('AGM.login method should return valid auth token', function() {
+  describe('Sanity Tests for CRON to Quartz conversion', function() {
 
-    it('should return an auth token', function(done) {
+    it('should return an auth token', function() {
 
-      agm.login(function (err, body) {
+		a = c.getQuartz('@hourly');
+		console.log(a);
 
         should.not.exist(err);
 
@@ -24,8 +25,6 @@ describe('API Tests Suite', function () {
         body.should.be.an.instanceof(Object).and.have.property('token_type');
         body.should.be.an.instanceof(Object).and.have.property('expires_in');
         body.should.be.an.instanceof(Object).and.have.property('scope');
-
-        done();
 
       });
     });
