@@ -1,6 +1,6 @@
 {
   "name": "cron-to-quartz",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "NodeJS JavaScript library to convert unix or linux CRON syntax to Quartz Scheduler",
   "main": "index.js",
   "scripts": {
