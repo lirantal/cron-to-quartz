@@ -39,8 +39,29 @@ You can then run the test suite:
 npm test
 ```
 
-
 # Usage
+
+In your NodeJS projects, simply require this library:
+
+```javascript
+var C2Q = require('../index.js');
+```
+
+Then you can just query the `C2Q` object with any cron notation as seen in the following examples:
+
+```javascript
+var quartz = C2Q.getQuartz('@hourly');
+var quartz = C2Q.getQuartz('0 0,12 1 */2 *');
+var quartz = C2Q.getQuartz('00 11,13 * * *');
+```
+
+## Special cases
+The Quartz Scheduler isn't fully compatible with the CRON notation, so while CRON allows logical OR expressions, Quartz doesn't do that. For this reason, if you provide such CRON syntax, then the `C2Q` object will yield an array of 2 values:
+
+```javascript
+var quartz = C2Q.getQuartz('0 4 15-21 * 1');
+```
+
 
 # Author
 Liran Tal <liran.tal@gmail.com>
