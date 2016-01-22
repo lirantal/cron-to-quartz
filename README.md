@@ -8,12 +8,37 @@
 # cron-to-quartz
 NodeJS JavaScript library to convert unix or linux CRON syntax to Quartz Scheduler
 
+
+
 # Install
+
+## Pre-requisite 
+
+* NodeJS tool with npm for installing packages
+* Grunt build tool
+
+## As a dependency of another project
 Install the module as a depdency in your project so you can easily require it and use it as a library
 
 ```javascript
 npm install cron-to-quartz --save
 ```
+
+## As a library to use
+To use the `cron-to-quartz` as a library to work with and explore, you should clone the repository and install required modules.
+* Note: the nodejs `grunt` task runner is required as a build tool for the library
+
+```bash
+git clone https://github.com/lirantal/cron-to-quartz.git
+cd cron-to-quartz
+npm install
+```
+
+You can then run the test suite:
+```bash
+npm test
+```
+
 
 # Usage
 
