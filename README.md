@@ -6,8 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/lirantal/cron-to-quartz/badge.svg?branch=master&service=github)](https://coveralls.io/github/lirantal/cron-to-quartz?branch=master)
 
 # cron-to-quartz
-NodeJS JavaScript library to convert unix or linux CRON syntax to Quartz Scheduler
-
+NodeJS JavaScript library to convert unix or linux CRON syntax to [http://www.quartz-scheduler.org/](Quartz Scheduler)
 
 
 # Install
@@ -62,6 +61,9 @@ The Quartz Scheduler isn't fully compatible with the CRON notation, so while CRO
 var quartz = C2Q.getQuartz('0 4 15-21 * 1');
 ```
 
+
+# Resources
+[http://www.cronmaker.com/](CronMaker) is an online web-based utility to help build and test expressions that are comptaible with the [http://www.quartz-scheduler.org](Quartz) open source schedule.
 
 # Author
 Liran Tal <liran.tal@gmail.com>
