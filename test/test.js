@@ -85,7 +85,7 @@ describe('CRON to Quartz - Test Suite', function () {
 
     	var quartzConfigStr = quartzConfigArray.join(' ');
 		quartzConfigStr.should.be.an.instanceof(String);
-		quartzConfigStr.should.be.equal('0 00 03-18 ? * 1-5 *');
+		quartzConfigStr.should.be.equal('0 00 03-18 ? * 2-6 *');
 
     });
 
@@ -119,7 +119,7 @@ describe('CRON to Quartz - Test Suite', function () {
     	var quartzConfigStr2 = quartzConfigArray2.join(' ');
 		quartzConfigStr2.should.be.an.instanceof(String);
 
-		quartzConfigStr2.should.be.equal('0 0 4 ? * 1 *');
+		quartzConfigStr2.should.be.equal('0 0 4 ? * 2 *');
 
 		// Extract array notation 2
 		var quartzConfigArray1 = quartz.pop();
@@ -174,6 +174,21 @@ describe('CRON to Quartz - Test Suite', function () {
         var quartzConfigStr = quartzConfigArray.join(' ');
         quartzConfigStr.should.be.an.instanceof(String);
         quartzConfigStr.should.be.equal('0 00 09-18 ? * * *');
+
+    });
+
+    it('CRON 00 09-18 * * 1-5 should resolve to a proper quartz configuration', function() {
+
+        var quartz = C2Q.getQuartz('00 09-18 * * 1-5');
+
+        quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+        var quartzConfigArray = quartz.pop();
+        quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+        var quartzConfigStr = quartzConfigArray.join(' ');
+        quartzConfigStr.should.be.an.instanceof(String);
+        quartzConfigStr.should.be.equal('0 00 09-18 ? * 2-6 *');
 
     });
 
