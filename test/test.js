@@ -147,6 +147,36 @@ describe('CRON to Quartz - Test Suite', function () {
 
     });
 
+    it('CRON 00 16,11 * * * should resolve to a proper quartz configuration', function() {
+
+        var quartz = C2Q.getQuartz('00 16,11 * * *');
+
+        quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+        var quartzConfigArray = quartz.pop();
+        quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+        var quartzConfigStr = quartzConfigArray.join(' ');
+        quartzConfigStr.should.be.an.instanceof(String);
+        quartzConfigStr.should.be.equal('0 00 16,11 ? * * *');
+
+    });
+
+    it('CRON 00 09-18 * * * should resolve to a proper quartz configuration', function() {
+
+        var quartz = C2Q.getQuartz('00 09-18 * * *');
+
+        quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+        var quartzConfigArray = quartz.pop();
+        quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+        var quartzConfigStr = quartzConfigArray.join(' ');
+        quartzConfigStr.should.be.an.instanceof(String);
+        quartzConfigStr.should.be.equal('0 00 09-18 ? * * *');
+
+    });
+
   });
 
 });
