@@ -65,6 +65,7 @@ var quartz = C2Q.getQuartz('0 4 15-21 * 1');
 # Resources
 [CronMaker](http://www.cronmaker.com) is an online web-based utility to help build and test expressions that are comptaible with the [Quartz](http://www.quartz-scheduler.org) open source schedule.
 [cron.guru](http://crontab.guru) is an online web-based utility to translate a valid Linux CRON expression to an actual human readable schedule
+[Quartz Scheduler Developer Guide](https://quartz-scheduler.org/generated/2.2.2/pdf/Quartz_Scheduler_Developer_Guide.pdf)
 
 # Author
 Liran Tal <liran.tal@gmail.com>
