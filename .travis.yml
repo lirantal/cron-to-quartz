@@ -21,5 +21,9 @@ addons:
     - g++-4.8
     - gcc-4.8
     - clang
+before_install:
+  - npm install -g snyk
+before_script:
+  - snyk test
 after_script:
   - npm run-script coverage
