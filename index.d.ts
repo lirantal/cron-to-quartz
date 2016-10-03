@@ -1,3 +1,3 @@
 declare module 'cron-to-quartz' {
-  function getQuartz(crontab: string): Object;
+  function getQuartz(crontab: string): any;
 }
