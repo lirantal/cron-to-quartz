@@ -30,6 +30,66 @@ describe('CRON to Quartz - Test Suite', function () {
 
     });
 
+    it('CRON @daily should resolve to a proper quartz configuration', function() {
+
+        var quartz = C2Q.getQuartz('@daily');
+
+        quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+        var quartzConfigArray = quartz.pop();
+        quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+        var quartzConfigStr = quartzConfigArray.join(' ');
+        quartzConfigStr.should.be.an.instanceof(String);
+        quartzConfigStr.should.be.equal('0 0 0 * * ? *');
+
+    });
+
+    it('CRON @weekly should resolve to a proper quartz configuration', function() {
+
+        var quartz = C2Q.getQuartz('@weekly');
+
+        quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+        var quartzConfigArray = quartz.pop();
+        quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+        var quartzConfigStr = quartzConfigArray.join(' ');
+        quartzConfigStr.should.be.an.instanceof(String);
+        quartzConfigStr.should.be.equal('0 0 0 ? * 1 *');
+
+    });
+
+    it('CRON @monthly should resolve to a proper quartz configuration', function() {
+
+        var quartz = C2Q.getQuartz('@monthly');
+
+        quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+        var quartzConfigArray = quartz.pop();
+        quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+        var quartzConfigStr = quartzConfigArray.join(' ');
+        quartzConfigStr.should.be.an.instanceof(String);
+        quartzConfigStr.should.be.equal('0 0 0 1 * ? *');
+
+    });
+
+    it('CRON @monthly should resolve to a proper quartz configuration', function() {
+
+        var quartz = C2Q.getQuartz('@yearly');
+
+        quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+        var quartzConfigArray = quartz.pop();
+        quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+        var quartzConfigStr = quartzConfigArray.join(' ');
+        quartzConfigStr.should.be.an.instanceof(String);
+        quartzConfigStr.should.be.equal('0 0 0 1 1 ? *');
+
+    });
+
     it('CRON 0 0,12 1 */2 * should resolve to a proper quartz configuration', function() {
 
     	var quartz = C2Q.getQuartz('0 0,12 1 */2 *');
@@ -235,6 +295,21 @@ describe('CRON to Quartz - Test Suite', function () {
           var quartzConfigStr = quartzConfigArray.join(' ');
           quartzConfigStr.should.be.an.instanceof(String);
           quartzConfigStr.should.be.equal('0 5 10 ? 11 1 *');
+
+      });
+
+      it('CRON syntax check should work fine with more than 5 arguments and simply ignored', function() {
+
+          var quartz = C2Q.getQuartz('5 4 * * * 99 98 97');
+
+          quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+          var quartzConfigArray = quartz.pop();
+          quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+          var quartzConfigStr = quartzConfigArray.join(' ');
+          quartzConfigStr.should.be.an.instanceof(String);
+          quartzConfigStr.should.be.equal('0 5 4 ? * * *');
 
       });
 
