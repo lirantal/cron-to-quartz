@@ -193,6 +193,51 @@ describe('CRON to Quartz - Test Suite', function () {
 
     });
 
+      it('CRON Day of Week sanity test ', function() {
+
+          var quartz = C2Q.getQuartz('5 10 * 11 1');
+
+          quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+          var quartzConfigArray = quartz.pop();
+          quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+          var quartzConfigStr = quartzConfigArray.join(' ');
+          quartzConfigStr.should.be.an.instanceof(String);
+          quartzConfigStr.should.be.equal('0 5 10 ? 11 2 *');
+
+      });
+
+      it('CRON Day of Week handle 0 as starting day of the week default to Sunday', function() {
+
+          var quartz = C2Q.getQuartz('5 10 * 11 0');
+
+          quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+          var quartzConfigArray = quartz.pop();
+          quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+          var quartzConfigStr = quartzConfigArray.join(' ');
+          quartzConfigStr.should.be.an.instanceof(String);
+          quartzConfigStr.should.be.equal('0 5 10 ? 11 1 *');
+
+      });
+
+      it('CRON Day of Week handle 8 as starting day of the week which defaults to Sunday', function() {
+
+          var quartz = C2Q.getQuartz('5 10 * 11 0');
+
+          quartz.should.be.an.instanceof(Array).and.have.length(1);
+
+          var quartzConfigArray = quartz.pop();
+          quartzConfigArray.should.be.an.instanceof(Array).and.have.length(7);
+
+          var quartzConfigStr = quartzConfigArray.join(' ');
+          quartzConfigStr.should.be.an.instanceof(String);
+          quartzConfigStr.should.be.equal('0 5 10 ? 11 1 *');
+
+      });
+
   });
 
 });
