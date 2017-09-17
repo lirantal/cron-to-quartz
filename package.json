@@ -1,7 +1,7 @@
 {
   "name": "cron-to-quartz",
   "version": "1.2.3",
-  "description": "NodeJS JavaScript library to convert unix or linux CRON syntax to Quartz Scheduler",
+  "description": "Node.js JavaScript library to convert unix or linux CRON syntax to Quartz Scheduler",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -30,15 +30,13 @@
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^2.13.1",
-    "jest": "^21.1.0",
-    "snyk": "^1.34.4"
+    "jest": "^21.1.0"
   },
   "bugs": {
     "url": "https://github.com/lirantal/cron-to-quartz/issues"
   },
   "homepage": "https://github.com/lirantal/cron-to-quartz#readme",
   "dependencies": {},
-  "snyk": true,
   "jest": {
     "verbose": true,
     "collectCoverage": true
