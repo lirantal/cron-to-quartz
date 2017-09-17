@@ -1,356 +1,380 @@
-'use strict';
+'use strict'
 
-/**
- * Tests
- * @module tests
- */
+var C2Q = require('../index.js')
 
-/**
- * Module dependencies.
- */
-var should = require('should');
-var C2Q = require('../index.js');
+describe('CRON to Quartz - Test Suite', () => {
 
-describe('CRON to Quartz - Test Suite', function () {
+  describe('Sanity Tests for CRON to Quartz conversion', () => {
 
-  describe('Sanity Tests for CRON to Quartz conversion', function() {
+    test(
+      'CRON @hourly should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON @hourly should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('@hourly')
 
-    	var quartz = C2Q.getQuartz('@hourly');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-    	var quartzConfigArray = quartz.pop();
-    	quartzConfigArray.should.be.an.instanceof(Array);
-      quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 0 * * * ? *')
 
-    	var quartzConfigStr = quartzConfigArray.join(' ');
-		  quartzConfigStr.should.be.an.instanceof(String);
-		  quartzConfigStr.should.be.equal('0 0 * * * ? *');
+      }
+    )
 
-    });
+    test(
+      'CRON @daily should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON @daily should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('@daily')
 
-        var quartz = C2Q.getQuartz('@daily');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-        quartz.should.be.an.instanceof(Array);
-        quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-        var quartzConfigArray = quartz.pop();
-        quartzConfigArray.should.be.an.instanceof(Array);
-        quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 0 0 * * ? *')
 
-        var quartzConfigStr = quartzConfigArray.join(' ');
-        quartzConfigStr.should.be.an.instanceof(String);
-        quartzConfigStr.should.be.equal('0 0 0 * * ? *');
+      }
+    )
 
-    });
+    test(
+      'CRON @weekly should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON @weekly should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('@weekly')
 
-        var quartz = C2Q.getQuartz('@weekly');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-        quartz.should.be.an.instanceof(Array);
-        quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-        var quartzConfigArray = quartz.pop();
-        quartzConfigArray.should.be.an.instanceof(Array);
-        quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 0 0 ? * 1 *')
 
-        var quartzConfigStr = quartzConfigArray.join(' ');
-        quartzConfigStr.should.be.an.instanceof(String);
-        quartzConfigStr.should.be.equal('0 0 0 ? * 1 *');
+      }
+    )
 
-    });
+    test(
+      'CRON @monthly should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON @monthly should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('@monthly')
 
-        var quartz = C2Q.getQuartz('@monthly');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-        quartz.should.be.an.instanceof(Array);
-        quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-        var quartzConfigArray = quartz.pop();
-        quartzConfigArray.should.be.an.instanceof(Array);
-        quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 0 0 1 * ? *')
 
-        var quartzConfigStr = quartzConfigArray.join(' ');
-        quartzConfigStr.should.be.an.instanceof(String);
-        quartzConfigStr.should.be.equal('0 0 0 1 * ? *');
+      }
+    )
 
-    });
+    test(
+      'CRON @monthly should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON @monthly should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('@yearly')
 
-        var quartz = C2Q.getQuartz('@yearly');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-        quartz.should.be.an.instanceof(Array);
-        quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-        var quartzConfigArray = quartz.pop();
-        quartzConfigArray.should.be.an.instanceof(Array);
-        quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 0 0 1 1 ? *')
 
-        var quartzConfigStr = quartzConfigArray.join(' ');
-        quartzConfigStr.should.be.an.instanceof(String);
-        quartzConfigStr.should.be.equal('0 0 0 1 1 ? *');
+      }
+    )
 
-    });
+    test(
+      'CRON 0 0,12 1 */2 * should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON 0 0,12 1 */2 * should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('0 0,12 1 */2 *')
 
-    	var quartz = C2Q.getQuartz('0 0,12 1 */2 *');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-    	var quartzConfigArray = quartz.pop();
-    	quartzConfigArray.should.be.an.instanceof(Array);
-      quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 0 0,12 1 */2 ? *')
 
-    	var quartzConfigStr = quartzConfigArray.join(' ');
-		  quartzConfigStr.should.be.an.instanceof(String);
-		  quartzConfigStr.should.be.equal('0 0 0,12 1 */2 ? *');
+      }
+    )
 
-    });
+    test(
+      'CRON * * * * * should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON * * * * * should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('* * * * *')
 
-    	var quartz = C2Q.getQuartz('* * * * *');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-    	var quartzConfigArray = quartz.pop();
-    	quartzConfigArray.should.be.an.instanceof(Array);
-      quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 * * ? * * *')
 
-    	var quartzConfigStr = quartzConfigArray.join(' ');
-		  quartzConfigStr.should.be.an.instanceof(String);
-		  quartzConfigStr.should.be.equal('0 * * ? * * *');
+      }
+    )
 
-    });
+    test(
+      'CRON 00 11,13 * * * should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON 00 11,13 * * * should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('00 11,13 * * *')
 
-    	var quartz = C2Q.getQuartz('00 11,13 * * *');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-    	var quartzConfigArray = quartz.pop();
-    	quartzConfigArray.should.be.an.instanceof(Array);
-      quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 00 11,13 ? * * *')
 
-    	var quartzConfigStr = quartzConfigArray.join(' ');
-		  quartzConfigStr.should.be.an.instanceof(String);
-		  quartzConfigStr.should.be.equal('0 00 11,13 ? * * *');
+      }
+    )
 
-    });
+    test(
+      'CRON 00 03-18 * * 1-5 should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON 00 03-18 * * 1-5 should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('00 03-18 * * 1-5')
 
-    	var quartz = C2Q.getQuartz('00 03-18 * * 1-5');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-    	var quartzConfigArray = quartz.pop();
-    	quartzConfigArray.should.be.an.instanceof(Array);
-      quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 00 03-18 ? * 2-6 *')
 
-    	var quartzConfigStr = quartzConfigArray.join(' ');
-		  quartzConfigStr.should.be.an.instanceof(String);
-		  quartzConfigStr.should.be.equal('0 00 03-18 ? * 2-6 *');
+      }
+    )
 
-    });
+    test(
+      'CRON */10 * * * * should resolve to a proper quartz configuration',
+      () => {
 
-    it('CRON */10 * * * * should resolve to a proper quartz configuration', function() {
+        var quartz = C2Q.getQuartz('*/10 * * * *')
 
-    	var quartz = C2Q.getQuartz('*/10 * * * *');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(1);
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-    	var quartzConfigArray = quartz.pop();
-    	quartzConfigArray.should.be.an.instanceof(Array);
-      quartzConfigArray.should.have.length(7);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 */10 * ? * * *')
 
-    	var quartzConfigStr = quartzConfigArray.join(' ');
-		  quartzConfigStr.should.be.an.instanceof(String);
-		  quartzConfigStr.should.be.equal('0 */10 * ? * * *');
+      }
+    )
 
-    });
+    test(
+      'CRON 0 4 15-21 * 1 should resolve to a proper quartz configuration - supporting and yielding 2 quartz configs',
+      () => {
 
-    it('CRON 0 4 15-21 * 1 should resolve to a proper quartz configuration - supporting and yielding 2 quartz configs', function() {
+        // The following is a complex CRON expression which basically creates an OR between DOM and DOW
+        // It is sepcialy because it yields 2 arrays for possible values to create for a Quartz scheduler
+        var quartz = C2Q.getQuartz('0 4 15-21 * 1')
 
-    	// The following is a complex CRON expression which basically creates an OR between DOM and DOW
-    	// It is sepcialy because it yields 2 arrays for possible values to create for a Quartz scheduler
-    	var quartz = C2Q.getQuartz('0 4 15-21 * 1');
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(2)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(2);
+        // Extract array notation 1
+        var quartzConfigArray2 = quartz.pop()
+        expect(quartzConfigArray2).toBeInstanceOf(Array)
+        expect(quartzConfigArray2).toHaveLength(7)
 
-    	// Extract array notation 1
-    	var quartzConfigArray2 = quartz.pop();
-    	quartzConfigArray2.should.be.an.instanceof(Array);
-      quartzConfigArray2.should.have.length(7);
+        var quartzConfigStr2 = quartzConfigArray2.join(' ')
+        expect(quartzConfigStr2).toBe('0 0 4 ? * 2 *')
 
-    	var quartzConfigStr2 = quartzConfigArray2.join(' ');
-		  quartzConfigStr2.should.be.an.instanceof(String);
+        // Extract array notation 2
+        var quartzConfigArray1 = quartz.pop()
+        expect(quartzConfigArray1).toBeInstanceOf(Array)
+        expect(quartzConfigArray1).toHaveLength(7)
 
-		  quartzConfigStr2.should.be.equal('0 0 4 ? * 2 *');
+        var quartzConfigStr1 = quartzConfigArray1.join(' ')
+        expect(quartzConfigStr1).toBe('0 0 4 15-21 * ? *')
 
-      // Extract array notation 2
-      var quartzConfigArray1 = quartz.pop();
-      quartzConfigArray1.should.be.an.instanceof(Array);
-      quartzConfigArray1.should.have.length(7);
+      }
+    )
 
-    	var quartzConfigStr1 = quartzConfigArray1.join(' ');
-		  quartzConfigStr1.should.be.an.instanceof(String);
-		  quartzConfigStr1.should.be.equal('0 0 4 15-21 * ? *');
+    test(
+      'CRON 0 4 8-14 * * should resolve to a proper quartz configuration',
+      () => {
 
-    });
+        var quartz = C2Q.getQuartz('0 4 8-14 * *')
 
-    it('CRON 0 4 8-14 * * should resolve to a proper quartz configuration', function() {
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-    	var quartz = C2Q.getQuartz('0 4 8-14 * *');
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-    	quartz.should.be.an.instanceof(Array);
-      quartz.should.have.length(1);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 0 4 8-14 * ? *')
 
-    	var quartzConfigArray = quartz.pop();
-    	quartzConfigArray.should.be.an.instanceof(Array);
-      quartzConfigArray.should.have.length(7);
+      }
+    )
 
-    	var quartzConfigStr = quartzConfigArray.join(' ');
-		  quartzConfigStr.should.be.an.instanceof(String);
-		  quartzConfigStr.should.be.equal('0 0 4 8-14 * ? *');
+    test(
+      'CRON 00 16,11 * * * should resolve to a proper quartz configuration',
+      () => {
 
-    });
+        var quartz = C2Q.getQuartz('00 16,11 * * *')
 
-    it('CRON 00 16,11 * * * should resolve to a proper quartz configuration', function() {
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-        var quartz = C2Q.getQuartz('00 16,11 * * *');
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-        quartz.should.be.an.instanceof(Array);
-        quartz.should.have.length(1);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 00 16,11 ? * * *')
 
-        var quartzConfigArray = quartz.pop();
-        quartzConfigArray.should.be.an.instanceof(Array);
-        quartzConfigArray.should.have.length(7);
+      }
+    )
 
-        var quartzConfigStr = quartzConfigArray.join(' ');
-        quartzConfigStr.should.be.an.instanceof(String);
-        quartzConfigStr.should.be.equal('0 00 16,11 ? * * *');
+    test(
+      'CRON 00 09-18 * * * should resolve to a proper quartz configuration',
+      () => {
 
-    });
+        var quartz = C2Q.getQuartz('00 09-18 * * *')
 
-    it('CRON 00 09-18 * * * should resolve to a proper quartz configuration', function() {
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-        var quartz = C2Q.getQuartz('00 09-18 * * *');
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-        quartz.should.be.an.instanceof(Array);
-        quartz.should.have.length(1);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 00 09-18 ? * * *')
 
-        var quartzConfigArray = quartz.pop();
-        quartzConfigArray.should.be.an.instanceof(Array);
-        quartzConfigArray.should.have.length(7);
+      }
+    )
 
-        var quartzConfigStr = quartzConfigArray.join(' ');
-        quartzConfigStr.should.be.an.instanceof(String);
-        quartzConfigStr.should.be.equal('0 00 09-18 ? * * *');
+    test(
+      'CRON 00 09-18 * * 1-5 should resolve to a proper quartz configuration',
+      () => {
 
-    });
+        var quartz = C2Q.getQuartz('00 09-18 * * 1-5')
 
-    it('CRON 00 09-18 * * 1-5 should resolve to a proper quartz configuration', function() {
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-        var quartz = C2Q.getQuartz('00 09-18 * * 1-5');
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-        quartz.should.be.an.instanceof(Array);
-        quartz.should.have.length(1);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 00 09-18 ? * 2-6 *')
 
-        var quartzConfigArray = quartz.pop();
-        quartzConfigArray.should.be.an.instanceof(Array);
-        quartzConfigArray.should.have.length(7);
+      }
+    )
 
-        var quartzConfigStr = quartzConfigArray.join(' ');
-        quartzConfigStr.should.be.an.instanceof(String);
-        quartzConfigStr.should.be.equal('0 00 09-18 ? * 2-6 *');
+    test('CRON Day of Week sanity test ', () => {
 
-    });
+      var quartz = C2Q.getQuartz('5 10 * 11 1')
 
-      it('CRON Day of Week sanity test ', function() {
+      expect(quartz).toBeInstanceOf(Array)
+      expect(quartz).toHaveLength(1)
 
-          var quartz = C2Q.getQuartz('5 10 * 11 1');
+      var quartzConfigArray = quartz.pop()
+      expect(quartzConfigArray).toBeInstanceOf(Array)
+      expect(quartzConfigArray).toHaveLength(7)
 
-          quartz.should.be.an.instanceof(Array);
-          quartz.should.have.length(1);
+      var quartzConfigStr = quartzConfigArray.join(' ')
+      expect(quartzConfigStr).toBe('0 5 10 ? 11 2 *')
 
-          var quartzConfigArray = quartz.pop();
-          quartzConfigArray.should.be.an.instanceof(Array);
-          quartzConfigArray.should.have.length(7);
+    })
 
-          var quartzConfigStr = quartzConfigArray.join(' ');
-          quartzConfigStr.should.be.an.instanceof(String);
-          quartzConfigStr.should.be.equal('0 5 10 ? 11 2 *');
+    test(
+      'CRON Day of Week handle 0 as starting day of the week default to Sunday',
+      () => {
 
-      });
+        var quartz = C2Q.getQuartz('5 10 * 11 0')
 
-      it('CRON Day of Week handle 0 as starting day of the week default to Sunday', function() {
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-          var quartz = C2Q.getQuartz('5 10 * 11 0');
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-          quartz.should.be.an.instanceof(Array);
-          quartz.should.have.length(1);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 5 10 ? 11 1 *')
 
-          var quartzConfigArray = quartz.pop();
-          quartzConfigArray.should.be.an.instanceof(Array);
-          quartzConfigArray.should.have.length(7);
+      }
+    )
 
-          var quartzConfigStr = quartzConfigArray.join(' ');
-          quartzConfigStr.should.be.an.instanceof(String);
-          quartzConfigStr.should.be.equal('0 5 10 ? 11 1 *');
+    test(
+      'CRON Day of Week handle 8 as starting day of the week which defaults to Sunday',
+      () => {
 
-      });
+        var quartz = C2Q.getQuartz('5 10 * 11 0')
 
-      it('CRON Day of Week handle 8 as starting day of the week which defaults to Sunday', function() {
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-          var quartz = C2Q.getQuartz('5 10 * 11 0');
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-          quartz.should.be.an.instanceof(Array);
-          quartz.should.have.length(1);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 5 10 ? 11 1 *')
 
-          var quartzConfigArray = quartz.pop();
-          quartzConfigArray.should.be.an.instanceof(Array);
-          quartzConfigArray.should.have.length(7);
+      }
+    )
 
-          var quartzConfigStr = quartzConfigArray.join(' ');
-          quartzConfigStr.should.be.an.instanceof(String);
-          quartzConfigStr.should.be.equal('0 5 10 ? 11 1 *');
+    test(
+      'CRON syntax check should work fine with more than 5 arguments and simply ignored',
+      () => {
 
-      });
+        var quartz = C2Q.getQuartz('5 4 * * * 99 98 97')
 
-      it('CRON syntax check should work fine with more than 5 arguments and simply ignored', function() {
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
 
-          var quartz = C2Q.getQuartz('5 4 * * * 99 98 97');
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
 
-          quartz.should.be.an.instanceof(Array);
-          quartz.should.have.length(1);
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 5 4 ? * * *')
 
-          var quartzConfigArray = quartz.pop();
-          quartzConfigArray.should.be.an.instanceof(Array);
-          quartzConfigArray.should.have.length(7);
+      }
+    )
 
-          var quartzConfigStr = quartzConfigArray.join(' ');
-          quartzConfigStr.should.be.an.instanceof(String);
-          quartzConfigStr.should.be.equal('0 5 4 ? * * *');
+  })
 
-      });
-
-  });
-
-});
+})
