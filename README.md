@@ -7,6 +7,8 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/lirantal/cron-to-quartz/badge.svg)](https://snyk.io/test/github/lirantal/cron-to-quartz)
 
 # cron-to-quartz
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/lirantal/cron-to-quartz.svg)](https://greenkeeper.io/)
 NodeJS JavaScript library to convert unix or linux CRON syntax to [Quartz Scheduler](http://www.quartz-scheduler.org)
 
 
