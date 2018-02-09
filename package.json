@@ -28,8 +28,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^2.13.1",
-    "jest": "^21.1.0"
+    "coveralls": "^3.0.0",
+    "jest": "^22.0.0"
   },
   "bugs": {
     "url": "https://github.com/lirantal/cron-to-quartz/issues"
