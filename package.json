@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "semantic-release": "semantic-release"
   },
   "types": "./index.d.ts",
   "repository": {
@@ -34,9 +35,31 @@
     "url": "https://github.com/lirantal/cron-to-quartz/issues"
   },
   "homepage": "https://github.com/lirantal/cron-to-quartz#readme",
-  "dependencies": {},
+  "dependencies": {
+    "semantic-release": "^12.4.1"
+  },
   "jest": {
     "verbose": true,
     "collectCoverage": true
+  },
+  "release": {
+    "branch": "master",
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {
+          "type": "docs",
+          "release": "patch"
+        },
+        {
+          "type": "refactor",
+          "release": "patch"
+        },
+        {
+          "type": "style",
+          "release": "patch"
+        }
+      ]
+    }
   }
 }
