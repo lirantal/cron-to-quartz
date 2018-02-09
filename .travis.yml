@@ -1,12 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-  - 6
-  - 7
   - 8
-before_install:
-  - npm install -g snyk
-before_script:
-  - snyk test
 after_script:
-  - npm run-script coverage
+  - yarn run coverage
+  - yarn run semantic-release
