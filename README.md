@@ -8,7 +8,6 @@
 
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat)](https://github.com/semantic-release/semantic-release)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lirantal/cron-to-quartz.svg)](https://greenkeeper.io/)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 # cron-to-quartz
 Node.js JavaScript library to convert unix or linux CRON syntax to [Quartz Scheduler](http://www.quartz-scheduler.org)
