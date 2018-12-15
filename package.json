@@ -29,15 +29,13 @@
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^3.0.0",
-    "jest": "^22.0.0"
+    "jest": "^22.0.0",
+    "semantic-release": "^15.0.0"
   },
   "bugs": {
     "url": "https://github.com/lirantal/cron-to-quartz/issues"
   },
   "homepage": "https://github.com/lirantal/cron-to-quartz#readme",
-  "dependencies": {
-    "semantic-release": "^15.0.0"
-  },
   "jest": {
     "verbose": true,
     "collectCoverage": true,
