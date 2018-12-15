@@ -40,7 +40,8 @@
   },
   "jest": {
     "verbose": true,
-    "collectCoverage": true
+    "collectCoverage": true,
+    "testEnvironment": "node"
   },
   "release": {
     "branch": "master",
