@@ -30,7 +30,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "jest": "^22.0.0",
-    "semantic-release": "^15.0.0"
+    "semantic-release": "^15.13.3"
   },
   "bugs": {
     "url": "https://github.com/lirantal/cron-to-quartz/issues"
