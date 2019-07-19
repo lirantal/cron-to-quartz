@@ -1,6 +1,6 @@
 {
   "name": "cron-to-quartz",
-  "version": "1.4.5",
+  "version": "0.0.0-development",
   "description": "Node.js JavaScript library to convert unix or linux CRON syntax to Quartz Scheduler",
   "main": "index.js",
   "scripts": {
@@ -76,7 +76,14 @@
         }
       ],
       "@semantic-release/npm",
-      "@semantic-release/git",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ]
+        }
+      ],
       "@semantic-release/github"
     ]
   }
