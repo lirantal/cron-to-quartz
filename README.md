@@ -1,13 +1,12 @@
 [![view on npm](http://img.shields.io/npm/v/cron-to-quartz.svg)](https://www.npmjs.org/package/cron-to-quartz)
 [![view on npm](http://img.shields.io/npm/l/cron-to-quartz.svg)](https://www.npmjs.org/package/cron-to-quartz)
 [![npm module downloads](http://img.shields.io/npm/dt/cron-to-quartz.svg)](https://www.npmjs.org/package/cron-to-quartz)
-[![Dependency Status](https://david-dm.org/lirantal/cron-to-quartz.svg)](https://david-dm.org/lirantal/cron-to-quartz)
 [![Build](https://travis-ci.org/lirantal/cron-to-quartz.svg?branch=master)](https://travis-ci.org/lirantal/cron-to-quartz)
 [![Coverage Status](https://coveralls.io/repos/github/lirantal/cron-to-quartz/badge.svg?branch=master)](https://coveralls.io/github/lirantal/cron-to-quartz?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/lirantal/cron-to-quartz/badge.svg)](https://snyk.io/test/github/lirantal/cron-to-quartz)
 [![Security Responsible Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg)](./SECURITY.md)
 
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat)](https://github.com/semantic-release/semantic-release)
+[![cron-to-quartz](https://snyk.io/advisor/npm-package/cron-to-quartz/badge.svg)](https://snyk.io/advisor/npm-package/cron-to-quartz)
 
 # cron-to-quartz
 
