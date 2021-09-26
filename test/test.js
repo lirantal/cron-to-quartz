@@ -375,6 +375,63 @@ describe('CRON to Quartz - Test Suite', () => {
       }
     )
 
+    test(
+      'CRON if the seconds are passed, remove and consider only the 5 character',
+      () => {
+
+        var quartz = C2Q.getQuartz('0 1 1 * * 1-3')
+
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
+
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
+
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 1 1 ? * 2-4 *')
+
+      }
+    )
+    
+    test(
+      'CRON checking if the start of the week default is 1',
+      () => {
+
+        var quartz = C2Q.getQuartz('1 1 * * 1-8')
+
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
+
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
+
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 1 1 ? * 1 *')
+
+      }
+    )    
+    
+    test(
+      'CRON if the days of months are passed with an interrogation',
+      () => {
+
+        var quartz = C2Q.getQuartz('1 1 ? * *')
+
+        expect(quartz).toBeInstanceOf(Array)
+        expect(quartz).toHaveLength(1)
+
+        var quartzConfigArray = quartz.pop()
+        expect(quartzConfigArray).toBeInstanceOf(Array)
+        expect(quartzConfigArray).toHaveLength(7)
+
+        var quartzConfigStr = quartzConfigArray.join(' ')
+        expect(quartzConfigStr).toBe('0 1 1 ? * * *')
+
+      }
+    )
+    
   })
 
 })
