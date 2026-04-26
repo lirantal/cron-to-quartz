@@ -1,3 +1,11 @@
+## [1.4.8](https://github.com/lirantal/cron-to-quartz/compare/v1.4.7...v1.4.8) (2026-04-26)
+
+
+### Bug Fixes
+
+* remove deprecated Snyk vulnerabilities badge from README ([#35](https://github.com/lirantal/cron-to-quartz/issues/35)) ([aed0f14](https://github.com/lirantal/cron-to-quartz/commit/aed0f14f17adb43f0174b953ba60d798ca88bb3e))
+* update release workflow and package.json for latest semantic-release ([#36](https://github.com/lirantal/cron-to-quartz/issues/36)) ([dd6abb6](https://github.com/lirantal/cron-to-quartz/commit/dd6abb6a438990052cf6bc6c7cbc27c48ca89141))
+
 ## [1.4.7](https://github.com/lirantal/cron-to-quartz/compare/v1.4.6...v1.4.7) (2021-09-27)
 
 
