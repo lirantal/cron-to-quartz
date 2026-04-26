@@ -7,12 +7,12 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest]
-        node: ["12", "14"]
+        node: ["18", "20", "22"]
     name: Node ${{ matrix.node }} (${{ matrix.platform }})
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
       - name: install dependencies
@@ -33,10 +33,10 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: "14"
+          node-version: "24"
       - name: install dependencies
         run: yarn install --frozen-lockfile --ignore-engines --ignore-scripts
       - name: release
