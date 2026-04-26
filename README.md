@@ -3,7 +3,6 @@
 [![npm module downloads](http://img.shields.io/npm/dt/cron-to-quartz.svg)](https://www.npmjs.org/package/cron-to-quartz)
 [![Build Status](https://github.com/lirantal/cron-to-quartz/workflows/CI/badge.svg)](https://github.com/lirantal/cron-to-quartz/actions?workflow=main)
 [![Coverage Status](https://coveralls.io/repos/github/lirantal/cron-to-quartz/badge.svg?branch=master)](https://coveralls.io/github/lirantal/cron-to-quartz?branch=master)
-[![Known Vulnerabilities](https://snyk.io/test/github/lirantal/cron-to-quartz/badge.svg)](https://snyk.io/test/github/lirantal/cron-to-quartz)
 [![Security Responsible Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg)](./SECURITY.md)
 
 [![cron-to-quartz](https://snyk.io/advisor/npm-package/cron-to-quartz/badge.svg)](https://snyk.io/advisor/npm-package/cron-to-quartz)
