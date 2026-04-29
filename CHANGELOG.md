@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/lirantal/cron-to-quartz/compare/v1.4.8...v1.4.9) (2026-04-29)
+
+
+### Bug Fixes
+
+* pin CI status badge to default branch ([#39](https://github.com/lirantal/cron-to-quartz/issues/39)) ([9955873](https://github.com/lirantal/cron-to-quartz/commit/995587381181805d9c6d62eb6791bf57846de1f8))
+
 ## [1.4.8](https://github.com/lirantal/cron-to-quartz/compare/v1.4.7...v1.4.8) (2026-04-26)
 
 
