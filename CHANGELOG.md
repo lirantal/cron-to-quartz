@@ -1,3 +1,11 @@
+## [1.4.12](https://github.com/lirantal/cron-to-quartz/compare/v1.4.11...v1.4.12) (2026-05-28)
+
+
+### Bug Fixes
+
+* **ci:** wire NPM_TOKEN secret and upgrade semantic-release to v25 ([#43](https://github.com/lirantal/cron-to-quartz/issues/43)) ([c055de4](https://github.com/lirantal/cron-to-quartz/commit/c055de411003859bcfebb54427ffae7118204707))
+* environment variable formatting in workflow ([1ddf990](https://github.com/lirantal/cron-to-quartz/commit/1ddf99072c29d53d722c742d8857ca6dd2bb9419))
+
 ## [1.4.11](https://github.com/lirantal/cron-to-quartz/compare/v1.4.10...v1.4.11) (2026-05-17)
 
 ## [1.4.10](https://github.com/lirantal/cron-to-quartz/compare/v1.4.9...v1.4.10) (2026-05-17)
