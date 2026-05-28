@@ -5,7 +5,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/lirantal/cron-to-quartz/badge.svg?branch=master)](https://coveralls.io/github/lirantal/cron-to-quartz?branch=master)
 [![Security Responsible Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg)](./SECURITY.md)
 
-[![cron-to-quartz](https://snyk.io/advisor/npm-package/cron-to-quartz/badge.svg)](https://snyk.io/advisor/npm-package/cron-to-quartz)
 
 # cron-to-quartz
 
