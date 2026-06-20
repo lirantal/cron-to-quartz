@@ -72,6 +72,10 @@ var quartz = C2Q.getQuartz("0 4 15-21 * 1");
 [cron.guru](http://crontab.guru) is an online web-based utility to translate a valid Linux CRON expression to an actual human readable schedule
 [Quartz Scheduler Developer Guide](https://quartz-scheduler.org/generated/2.2.2/pdf/Quartz_Scheduler_Developer_Guide.pdf)
 
+## Documentation
+
+- [Project documentation](./docs/README.md) - development, testing, architecture, and conventions.
+
 ## Contributing
 
 Please consult [CONTRIBUTING](./CONTRIBUTING.md) for guidelines on contributing to this project.
