@@ -1,3 +1,5 @@
+## [1.4.15](https://github.com/lirantal/cron-to-quartz/compare/v1.4.14...v1.4.15) (2026-07-23)
+
 ## [1.4.14](https://github.com/lirantal/cron-to-quartz/compare/v1.4.13...v1.4.14) (2026-06-22)
 
 ## [1.4.13](https://github.com/lirantal/cron-to-quartz/compare/v1.4.12...v1.4.13) (2026-05-28)
