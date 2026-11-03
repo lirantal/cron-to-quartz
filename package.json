@@ -50,7 +50,9 @@
     "access": "public"
   },
   "release": {
-    "branches": ["master"],
+    "branches": [
+      "master"
+    ],
     "analyzeCommits": {
       "preset": "angular",
       "releaseRules": [
@@ -92,5 +94,6 @@
   "engines": {
     "node": ">=24.0.0",
     "npm": ">=11.10.0"
-  }
+  },
+  "packageManager": "npm@11.21.0"
 }
