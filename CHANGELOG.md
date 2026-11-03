@@ -1,3 +1,10 @@
+## [1.4.16](https://github.com/lirantal/cron-to-quartz/compare/v1.4.15...v1.4.16) (2026-11-03)
+
+
+### Bug Fixes
+
+* **ci:** pin package-manager toolchains 🤖🤖🤖 ([#45](https://github.com/lirantal/cron-to-quartz/issues/45)) ([aebe030](https://github.com/lirantal/cron-to-quartz/commit/aebe030f7bd5e80a0e067f86dc5c74600390803a)), closes [#46](https://github.com/lirantal/cron-to-quartz/issues/46)
+
 ## [1.4.15](https://github.com/lirantal/cron-to-quartz/compare/v1.4.14...v1.4.15) (2026-07-23)
 
 ## [1.4.14](https://github.com/lirantal/cron-to-quartz/compare/v1.4.13...v1.4.14) (2026-06-22)
